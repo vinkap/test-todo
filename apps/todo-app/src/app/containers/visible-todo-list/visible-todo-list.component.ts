@@ -61,4 +61,20 @@ export class VisibleTodoListComponent {
         )
       );
   }
+
+  deleteTodo(todo: Todo): void {
+    this.store
+      .pipe(
+        select(fromRoot.getIsLoading(['TOGGLE_TODO'])),
+        first(),
+        filter((isLoading) => !isLoading)
+      )
+      .subscribe(() =>
+        {
+          return this.store.dispatch(
+            TodosActions.deleteTodoRequest(todo)
+          );
+        }
+      );
+  }
 }

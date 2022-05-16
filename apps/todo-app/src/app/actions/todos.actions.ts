@@ -36,4 +36,15 @@ export const toggleTodoSuccess = createAction(
   (payload: NormalizedEntity<Todo>) => ({ payload })
 );
 
+export const deleteTodoRequest = createAction(
+  'DELETE_TODO_REQUEST',
+  (payload: Todo) => ({ payload })
+);
+
+export const deleteTodoSuccess = createAction(
+  'DELETE_TODO_SUCCESS',
+  (id: string) => ( {id })
+);
+export const deleteTodoFailure = createAction('DELETE_TODO_FAILURE');
+
 export const toggleTodoFailure = createAction('TOGGLE_TODO_FAILURE');

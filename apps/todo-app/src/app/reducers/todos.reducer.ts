@@ -1,3 +1,4 @@
+import { state } from '@angular/animations';
 import { combineReducers, createReducer, on } from '@ngrx/store';
 import * as TodosActions from '../actions/todos.actions';
 import { Todo } from '../models/todo.model';
@@ -34,7 +35,8 @@ const allIds = createReducer(
   on(TodosActions.addTodoSuccess, (state, { payload }) => [
     ...state,
     payload.result,
-  ])
+  ]),
+  on(TodosActions.deleteTodoSuccess, (state, { id }) => state.filter(s => s !== id))
 );
 
 export const todos = combineReducers({

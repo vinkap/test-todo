@@ -1,7 +1,10 @@
-<li
-  (click)="toggleTodo.emit(todo)"
-  [style.text-decoration]="todo.completed ? 'line-through' : 'none'"
-  data-cy="todo"
->
-  {{ todo.text }}
-</li>
+<div>
+  <li
+    (click)="toggleTodo.emit(todo)"
+    [style.text-decoration]="todo.completed ? 'line-through' : 'none'"
+    data-cy="todo"
+  >
+    {{ todo.text }}
+  </li>
+  <button (click)="deleteTodo.emit(todo)">X</button>
+</div>
